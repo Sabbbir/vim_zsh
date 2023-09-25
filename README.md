@@ -20,13 +20,12 @@ Done!
 
 # ZSH
 
-Install ohMyZsh
+Install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+Install [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
-Install zsh-syntax-highlighting
+Install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
-Install powerlevel10k
-
-Install zsh-autoSuggestion
+Install [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
 
 Done!
