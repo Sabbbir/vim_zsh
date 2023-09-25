@@ -19,9 +19,14 @@ Next
 Done!
 
 # ZSH
+
 Install ohMyZsh
+
 Install zsh-syntax-highlighting
+
 Install powerlevel10k
+
 Install zsh-autoSuggestion
+
 
 Done!
