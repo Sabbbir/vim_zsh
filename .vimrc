@@ -54,3 +54,12 @@ set noshowmode
 
 " vertically center document in insert mode
 autocmd InsertEnter * norm zz
+
+
+call plug#begin('~/.vim/plugged')
+
+" Vim github wrapper
+Plug 'tpope/vim-fugitive'
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
