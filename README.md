@@ -20,9 +20,9 @@ Done!
 
 # ZSH
 
-Install _[ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
+Install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh)
 
-Install _[powerlevel10k](https://github.com/romkatv/powerlevel10k)
+Install [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 Install [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
