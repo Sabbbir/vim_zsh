@@ -18,7 +18,7 @@ Next
 
 Done!
 
-#ZSH
+# ZSH
 Install ohMyZsh
 Install zsh-syntax-highlighting
 Install powerlevel10k
