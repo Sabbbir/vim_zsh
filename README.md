@@ -1,6 +1,7 @@
-# vim_zsh
+# Vim and Zsh config file
 Contains .vimrc and .zshrc file for normal user and root
 
+# Vim
 To install vim plugin,
 we need to run 
 
@@ -14,5 +15,13 @@ and
 Next
     
     :PlugInstall
+
+Done!
+
+#ZSH
+Install ohMyZsh
+Install zsh-syntax-highlighting
+Install powerlevel10k
+Install zsh-autoSuggestion
 
 Done!
