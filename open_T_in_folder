@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo '#! /bin/sh' > ~/.local/share/nautilus/scripts/Terminal
+echo 'gnome-terminal' >> ~/.local/share/nautilus/scripts/Terminal
+
+chmod +x /home/druglord/.local/share/nautilus/scripts/Terminal
+
+echo 'F4 Terminal' > ~/.config/nautilus/scripts-accels
+
+
