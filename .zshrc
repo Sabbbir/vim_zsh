@@ -101,7 +101,8 @@ export PATH="/usr/local/miniconda3/bin:$PATH"
 # export ARCHFLAGS="-arch x86_64"
 #
 #CUDNN library setup
-export PATH="/usr/local/cuda-11.8/bin$PATH"
+export PATH="/usr/local/cuda-11.8/bin:$PATH"
+export CUDA_HOME="/usr/local/cuda-11.8"
 export LD_LIBRARY_PATH="/home/druglord/.local/lib/python3.11/site-packages/nvidia/cudnn:${LD_LIBRARY_PATH}"
 
 #Then type these commands
