@@ -99,7 +99,17 @@ export PATH="/usr/local/miniconda3/bin:$PATH"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+#
+#CUDNN library setup
+export PATH="/usr/local/cuda-11.8/bin$PATH"
+export LD_LIBRARY_PATH="/home/druglord/.local/lib/python3.11/site-packages/nvidia/cudnn:${LD_LIBRARY_PATH}"
 
+#Then type these commands
+#sudo cp cudnn/include/cudnn*.h /usr/local/cuda-11.8/include
+#sudo cp -P cudnn/lib/libcudnn* /usr/local/cuda-11.8/lib64
+#sudo chmod a+r /usr/local/cuda-11.8/include/cudnn*.h /usr/local/cuda-11.8/lib64/libcudnn*
+#
+#
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -134,3 +144,4 @@ unset __conda_setup
 
 export PATH="$PATH:/home/druglord/.local/bin"
 alias cdd="conda deactivate"
+alias ctf"=conda activate tf"
