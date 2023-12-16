@@ -109,13 +109,36 @@ CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file_
 export LD_LIBRARY_PATH=$CUDNN_PATH/lib:/usr/local/TensorRT-8.6.1.6/lib:$LD_LIBRARY_PATH
 
 
+# Download 
+#
+# cuda-toolkit => with wget
+# cudnn => tar
+# mv cudnn* => cudnn
 
-#Then type these commands
+#After unzipping cudnn, type these commands
 #sudo cp cudnn/include/cudnn*.h /usr/local/cuda-11.8/include
 #sudo cp -P cudnn/lib/libcudnn* /usr/local/cuda-11.8/lib64
 #sudo chmod a+r /usr/local/cuda-11.8/include/cudnn*.h /usr/local/cuda-11.8/lib64/libcudnn*
-#
-#
+
+#ll /usr/local/cuda-11.8/include/cudn*.h
+#ll /usr/local/cuda-11.8/lib64/
+#ll /usr/local/cuda-11.8/lib64/libcudnn*
+#sudo dnf update
+
+#Next need to install conda toolkit
+#conda install -c nvidia/lebel/cuda-11.8.0 cuda-toolkit
+
+#create conda envirnment
+#conda create --name tf python=3.9
+#conda activate tf
+
+#install pytorch
+#conda install pytorch torchvision torchaudio
+
+
+#install tensorflow(cudnn 8.7 with tf 2.14.0)
+#pip install tensorflow==2.14.0
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
