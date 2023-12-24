@@ -100,44 +100,61 @@ export PATH="/usr/local/miniconda3/bin:$PATH"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 #
-#CUDNN library setup
+
+# Add CUDA and TensorRT paths to PATH and CUDA_HOME
 export PATH="/usr/local/cuda-11.8/bin:$PATH"
 export CUDA_HOME="/usr/local/cuda-11.8"
-export LD_LIBRARY_PATH="/home/druglord/.local/lib/python3.11/site-packages/nvidia/cudnn:${LD_LIBRARY_PATH}"
+
+# Add CUDA, cuDNN, and TensorRT paths to LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/home/druglord/.local/lib/python3.11/site-packages/nvidia/cudnn:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH="/usr/local/TensorRT-8.6.1.6/lib:$LD_LIBRARY_PATH"
-CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
-export LD_LIBRARY_PATH=$CUDNN_PATH/lib:/usr/local/TensorRT-8.6.1.6/lib:$LD_LIBRARY_PATH
 
+# Add cuDNN path to CUDNN_PATH
+export CUDNN_PATH="/home/druglord/.conda/envs/tf/lib/python3.9/site-packages/nvidia"
 
-# Download 
+# Update LD_LIBRARY_PATH with CUDNN_PATH and TensorRT paths
+export LD_LIBRARY_PATH="$CUDNN_PATH:$LD_LIBRARY_PATH:/usr/local/TensorRT-8.6.1.6/lib"
+
+# ML/AI/DL Environment setup
+
+#Requirement
+
+# Tensorflow		 Python		 Compiler	CuDNN	 CUDA
+#tensorflow-2.13.0	3.8-3.11	Clang 16.0.0	 8.6	 11.8 
 #
-# cuda-toolkit => with wget
+#create conda envirnment
+# conda create --name tf python=3.11.5
+# conda activate tf
+
+# cuda-toolkit(11.8) => 
+# wget https://developer.download.nvidia.com/compute/cuda/11.8.0/local_installers/cuda-repo-fedora35-11-8-local-11.8.0_520.61.05-1.x86_64.rpm
+# sudo rpm -i cuda-repo-fedora35-11-8-local-11.8.0_520.61.05-1.x86_64.rpm 
+# sudo dnf remove all
+# sudo dnf install cuda
+
 # cudnn => tar
 # mv cudnn* => cudnn
 
 #After unzipping cudnn, type these commands
-#sudo cp cudnn/include/cudnn*.h /usr/local/cuda-11.8/include
-#sudo cp -P cudnn/lib/libcudnn* /usr/local/cuda-11.8/lib64
-#sudo chmod a+r /usr/local/cuda-11.8/include/cudnn*.h /usr/local/cuda-11.8/lib64/libcudnn*
+# sudo cp cudnn/include/cudnn*.h /usr/local/cuda-11.8/include
+# sudo cp -P cudnn/lib/libcudnn* /usr/local/cuda-11.8/lib64
+# sudo chmod a+r /usr/local/cuda-11.8/include/cudnn*.h /usr/local/cuda-11.8/lib64/libcudnn*
 
-#ll /usr/local/cuda-11.8/include/cudn*.h
-#ll /usr/local/cuda-11.8/lib64/
-#ll /usr/local/cuda-11.8/lib64/libcudnn*
-#sudo dnf update
+# ll /usr/local/cuda-11.8/include/cudn*.h
+# ll /usr/local/cuda-11.8/lib64/
+# ll /usr/local/cuda-11.8/lib64/libcudnn*
 
-#Next need to install conda toolkit
-#conda install -c nvidia/lebel/cuda-11.8.0 cuda-toolkit
-
-#create conda envirnment
-#conda create --name tf python=3.9
-#conda activate tf
+#install tensorflow(cudnn 8.6 with tf 2.13.0)
+#pip install tensorflow==2.13.0
 
 #install pytorch
-#conda install pytorch torchvision torchaudio
+#pip install pytorch torchvision torchaudio
 
 
-#install tensorflow(cudnn 8.7 with tf 2.14.0)
-#pip install tensorflow==2.14.0
+# Make the changes take effect
+#source ~/.zshrc
+
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -174,3 +191,6 @@ unset __conda_setup
 export PATH="$PATH:/home/druglord/.local/bin"
 alias cdd="conda deactivate"
 alias ctf"=conda activate tf"
+
+export PATH="/opt/lampp/bin:$PATH"
+
