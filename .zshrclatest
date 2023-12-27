@@ -106,15 +106,41 @@ export PATH="/usr/local/cuda-11.8/bin:$PATH"
 export CUDA_HOME="/usr/local/cuda-11.8"
 
 # Add CUDA, cuDNN, and TensorRT paths to LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH="/usr/local/cuda-11.8/lib64:/home/druglord/.local/lib/python3.11/site-packages/nvidia/cudnn:/usr/local/TensorRT-8.6.1.6/lib:$LD_LIBRARY_PATH"
+
 export LD_LIBRARY_PATH="/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH="/home/druglord/.local/lib/python3.11/site-packages/nvidia/cudnn:$LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH="/usr/local/TensorRT-8.6.1.6/lib:$LD_LIBRARY_PATH"
 
 # Add cuDNN path to CUDNN_PATH
 export CUDNN_PATH="/home/druglord/.conda/envs/tf/lib/python3.9/site-packages/nvidia"
 
 # Update LD_LIBRARY_PATH with CUDNN_PATH and TensorRT paths
 export LD_LIBRARY_PATH="$CUDNN_PATH:$LD_LIBRARY_PATH:/usr/local/TensorRT-8.6.1.6/lib"
+
+# Tensor-RT from tar files
+# https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-tar
+
+# tar -xvf tensorrt...
+# Tensor-RT add var
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/usr/local/TensorRT-8.6.1.6/lib"
+
+# none, lean and dispatch
+# python3 -m pip install tensorrt-*-cp3x-none-linux_x86_64.whl
+# python3 -m pip install tensorrt_lean-*-cp3x-none-linux_x86_64.whl
+# python3 -m pip install tensorrt_dispatch-*-cp3x-none-linux_x86_64.whl
+
+#tensorrt/uff
+# python3 -m pip install uff-0.6.9-py2.py3-none-any.whl
+
+#tensorrt/graphsurgeon
+# python3 -m pip install graphsurgeon-0.4.6-py2.py3-none-any.whl
+
+#tensorrt/onnx_graphsurgeon
+# python3 -m pip install onnx_graphsurgeon-0.3.12-py2.py3-none-any.whl 
+
+#Ignore warning
+export TF_CPP_MIN_LOG_LEVEL=2
 
 # ML/AI/DL Environment setup
 
@@ -144,6 +170,32 @@ export LD_LIBRARY_PATH="$CUDNN_PATH:$LD_LIBRARY_PATH:/usr/local/TensorRT-8.6.1.6
 # ll /usr/local/cuda-11.8/include/cudn*.h
 # ll /usr/local/cuda-11.8/lib64/
 # ll /usr/local/cuda-11.8/lib64/libcudnn*
+
+
+# Installing Tensor-RT from tar files
+# https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-tar
+
+# tar -xvf tensorrt...
+# Before installing Tensor-RT, add to var
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/usr/local/TensorRT-8.6.1.6/lib"
+
+# none, lean and dispatch install
+# cd tensorrt/python
+# python3 -m pip install tensorrt-*-cp3x-none-linux_x86_64.whl
+# python3 -m pip install tensorrt_lean-*-cp3x-none-linux_x86_64.whl
+# python3 -m pip install tensorrt_dispatch-*-cp3x-none-linux_x86_64.whl
+
+# cd tensorrt/uff
+# python3 -m pip install uff-0.6.9-py2.py3-none-any.whl
+
+# cd tensorrt/graphsurgeon
+# python3 -m pip install graphsurgeon-0.4.6-py2.py3-none-any.whl
+
+# cd tensorrt/onnx_graphsurgeon
+# python3 -m pip install onnx_graphsurgeon-0.3.12-py2.py3-none-any.whl 
+
+#Ignore warning
+export TF_CPP_MIN_LOG_LEVEL=2
 
 #install tensorflow(cudnn 8.6 with tf 2.13.0)
 #pip install tensorflow==2.13.0
@@ -192,5 +244,4 @@ export PATH="$PATH:/home/druglord/.local/bin"
 alias cdd="conda deactivate"
 alias ctf"=conda activate tf"
 
-export PATH="/opt/lampp/bin:$PATH"
 
